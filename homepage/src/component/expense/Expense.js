@@ -4,29 +4,28 @@ import "./expense.css";
 import ExpenseDate from "./ExpenseDate";
 
 function Expense(props){
-    // title=props.title;
-    // const [title, setTitle]= useState(props.title);
-    const [customTitle, setCustomeTitle]= useState(props.title);
-    let clickHandler = () =>{
-        // setTitle(customTitle);
-    }
-    let changeHandler = (event) =>{
+    // // title=props.title;
+    // // const [title, setTitle]= useState(props.title);
+    // const [customTitle, setCustomeTitle]= useState(props.title);
+    // let clickHandler = () =>{
+    //     // setTitle(customTitle);
+    // }
+    // let changeHandler = (event) =>{
+    //     setCustomeTitle(event.target.value);
+    // }
+    // WE ARE NOW USING INPUT FROM USER TO CREATE NEW EXPENSE CARD
 
-        setCustomeTitle(event.target.value);
-    }
 
     return(
         <div className="card">
             <div className="card-body">
-                <h3 className="expense-title">{customTitle}</h3>
+                <h3 className="expense-title">{props.title}</h3>
                 <div className="expense-price">Rs./ - { props.price}</div>
                 
             </div>
             <div className="card-footer">
             <ExpenseDate date={props.date} />
             </div>
-            <input type="text" placeholder="Change title here" value={customTitle} onChange={changeHandler} />
-            {/* <button onClick={ clickHandler }>Change Title</button> */}
         </div>
     );
 }
