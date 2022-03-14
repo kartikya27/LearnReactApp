@@ -1,9 +1,11 @@
 import "./expense.css";
 
 function Expense(props){
-    const month = props.date.toLocalString('en-US',{month: 'long'});
-    const day = props.date.toLocalString('en-US',{day: '2-digit'});
-    const year = props.date.getFullYear();
+    
+        const month = props.date?.toLocaleString("en-US", { month: "long" });
+        const day = props.date?.toLocaleString("en-US", { day: "2-digit" });
+        const year = props.date?.getFullYear();
+    
     return(
         <div className="card">
             <div className="card-body">
@@ -13,9 +15,9 @@ function Expense(props){
             </div>
             <div className="card-footer">
             <div className="expense-date">
-                <span>{ day }</span>
-                <span>{ month }</span>
-                <span>{ year }</span>
+                <span>{day}, </span>
+                <span>{month} </span>
+                <span>{year}</span>  
             </div>
             </div>
         </div>
