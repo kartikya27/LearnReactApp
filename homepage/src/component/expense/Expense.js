@@ -1,25 +1,32 @@
+import React,{useState} from "react";
+
 import "./expense.css";
+import ExpenseDate from "./ExpenseDate";
 
 function Expense(props){
-    
-        const month = props.date?.toLocaleString("en-US", { month: "long" });
-        const day = props.date?.toLocaleString("en-US", { day: "2-digit" });
-        const year = props.date?.getFullYear();
-    
+    // title=props.title;
+    // const [title, setTitle]= useState(props.title);
+    const [customTitle, setCustomeTitle]= useState(props.title);
+    let clickHandler = () =>{
+        // setTitle(customTitle);
+    }
+    let changeHandler = (event) =>{
+
+        setCustomeTitle(event.target.value);
+    }
+
     return(
         <div className="card">
             <div className="card-body">
-                <h3 className="expense-title">{props.title}</h3>
+                <h3 className="expense-title">{customTitle}</h3>
                 <div className="expense-price">Rs./ - { props.price}</div>
                 
             </div>
             <div className="card-footer">
-            <div className="expense-date">
-                <span>{day}, </span>
-                <span>{month} </span>
-                <span>{year}</span>  
+            <ExpenseDate date={props.date} />
             </div>
-            </div>
+            <input type="text" placeholder="Change title here" value={customTitle} onChange={changeHandler} />
+            {/* <button onClick={ clickHandler }>Change Title</button> */}
         </div>
     );
 }
